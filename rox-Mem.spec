@@ -18,7 +18,7 @@ BuildRequires:	libxml2-devel
 BuildRequires:	rox-CLib-devel >= 0.2.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define   _appsdir  %{_libdir}/ROX-apps
+%define		_appsdir	%{_libdir}/ROX-apps
 
 %description
 ROX-Mem can function as a ROX applet or a standalone program and
