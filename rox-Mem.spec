@@ -8,6 +8,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tgz
+# Source0-md5:	4f57804f56378e02fb6ae66465a14c1f
 Patch0:		%{name}-libxml-includes.patch
 Patch1:		%{name}-paths-fix.patch
 URL:		http://www.kerofin.demon.co.uk/rox/utils.html#Mem
