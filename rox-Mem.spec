@@ -1,11 +1,10 @@
-%define _appsdir /usr/X11R6/share/ROX-apps
 %define _name Mem
 %define _platform %(echo `uname -s`-`uname -m|sed 's/i.86/ix86/'`)
 Summary:	ROX-Mem displays the current memory usage
 Summary(pl):	ROX-Mem wy¶wietla bie¿±ce zu¿ycie pamiêci
 Name:		rox-%{_name}
 Version:	1.1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tgz
@@ -20,6 +19,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define   _appsdir  %{_libdir}/ROX-apps
 
 %description
 ROX-Mem can function as a ROX applet or a standalone program and
