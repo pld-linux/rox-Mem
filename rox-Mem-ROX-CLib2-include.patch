@@ -1,0 +1,41 @@
+diff -urN Mem.new/src/mem.c Mem/src/mem.c
+--- Mem.new/src/mem.c	2005-04-18 20:52:54.540133152 +0200
++++ Mem/src/mem.c	2005-04-18 21:02:10.248652616 +0200
+@@ -37,11 +37,11 @@
+ #include <libxml/tree.h>
+ #include <libxml/parser.h>
+ 
+-#include <rox/rox.h>
+-#include <rox/applet.h>
+-#include <rox/options.h>
+-#include <rox/rox_soap.h>
+-#include <rox/rox_soap_server.h>
++#include <ROX-CLib2/rox.h>
++#include <ROX-CLib2/applet.h>
++#include <ROX-CLib2/options.h>
++#include <ROX-CLib2/rox_soap.h>
++#include <ROX-CLib2/rox_soap_server.h>
+ 
+ #ifdef HAVE_LIBGTOP
+ #include <glibtop.h>
+@@ -153,7 +153,7 @@
+   printf("Distributed under the terms of the GNU General Public License.\n");
+   printf("(See the file COPYING in the Help directory).\n");
+   printf("%s last compiled %s\n", __FILE__, __DATE__);
+-  printf("ROX-CLib version %s (built with %d.%d.%d)\n",
++  printf("ROX-CLib2 version %s (built with %d.%d.%d)\n",
+ 	 rox_clib_version_string(),
+ 	 ROX_CLIB_VERSION/10000, (ROX_CLIB_VERSION%10000)/100,
+ 	 ROX_CLIB_VERSION%100);
+diff -urN Mem.new/src/mem_stats.c Mem/src/mem_stats.c
+--- Mem.new/src/mem_stats.c	2005-04-18 20:52:54.541133000 +0200
++++ Mem/src/mem_stats.c	2005-04-18 21:01:41.311051800 +0200
+@@ -46,7 +46,7 @@
+ #include <sys/swap.h>
+ #endif
+ 
+-#include <rox/rox.h>
++#include <ROX-CLib2/rox.h>
+ 
+ static int pagesize=0;
+ 
