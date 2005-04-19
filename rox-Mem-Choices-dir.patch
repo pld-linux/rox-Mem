@@ -1,0 +1,13 @@
+diff -urN Mem.new/choice_install Mem/choice_install
+--- Mem.new/choice_install	2005-04-18 20:52:54.000000000 +0200
++++ Mem/choice_install	2005-04-19 18:56:54.855612144 +0200
+@@ -8,8 +8,7 @@
+ 
+ choices_write=`echo $CHOICESPATH | cut -f1 -d:`
+ if [ ! -d $choices_write ]; then
+-    echo $choices_write not found or not a directory
+-    exit 1
++    mkdir $choices_write
+ fi
+ 
+ prog=$1
