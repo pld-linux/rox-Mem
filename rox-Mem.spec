@@ -3,19 +3,26 @@
 Summary:	ROX-Mem displays the current memory usage
 Summary(pl):	ROX-Mem wy¶wietla bie¿±ce zu¿ycie pamiêci
 Name:		rox-%{_name}
-Version:	1.1.1
-Release:	2
-License:	GPL
+Version:	2.1.2
+Release:	1
+License:	GPL v2
 Group:		X11/Applications
-Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tgz
-# Source0-md5:	4f57804f56378e02fb6ae66465a14c1f
-Patch0:		%{name}-libxml-includes.patch
-Patch1:		%{name}-paths-fix.patch
-URL:		http://www.kerofin.demon.co.uk/rox/utils.html#Mem
-BuildRequires:	gtk+-devel
-BuildRequires:	libgtop-devel
-BuildRequires:	libxml2-devel
-BuildRequires:	rox-CLib-devel >= 0.2.2
+Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tar.gz
+# Source0-md5:	21f49f51055b43721a0a76ef38991077
+Source1:	%{name}.desktop
+#Patch0:	%{name}-paths-fix.patch
+Patch1:		%{name}-ROX-CLib2-include.patch
+Patch2:		%{name}-ROX-apps-paths.patch
+Patch3:		%{name}-aclocal.patch
+Patch4:		%{name}-Choices-dir.patch
+URL:		http://www.kerofin.demon.co.uk/rox/mem.html
+BuildRequires:	autoconf
+BuildRequires:	glib2-devel >= 2.0.3
+BuildRequires:	gtk+2-devel >= 2.0.1
+BuildRequires:	libgtop-devel >= 2.0.1
+BuildRequires:	libxml2-devel >= 2.4.0
+BuildRequires:	pkgconfig >= 0.9.0
+BuildRequires:	rox-CLib2-devel >= 2.1.4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_appsdir	%{_libdir}/ROX-apps
@@ -31,31 +38,45 @@ Wy¶witla on bie¿±ce zu¿ycie pamiêci oraz swapu.
 
 %prep
 %setup -q -n %{_name}
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
+cd src
+%{__autoconf}
+cd ..
 ./AppRun --compile
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_appsdir}/%{_name}/{Help,%{_platform}}
+install -d $RPM_BUILD_ROOT{%{_desktopdir},%{_pixmapsdir}}
 
-rm -f ../install
-install App* choice_install rox_run gtkrc $RPM_BUILD_ROOT%{_appsdir}/%{_name}
+install .DirIcon *.xml choice_install gtkrc rox_run $RPM_BUILD_ROOT%{_appsdir}/%{_name}
+install AppRun AppletRun $RPM_BUILD_ROOT%{_appsdir}/%{_name}
 install Help/README $RPM_BUILD_ROOT%{_appsdir}/%{_name}/Help
 install %{_platform}/Mem $RPM_BUILD_ROOT%{_appsdir}/%{_name}/%{_platform}
+install .DirIcon $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc Help/Versions
+%doc Help/{Changes,README,Versions}
+%attr(755,root,root) %dir %{_appsdir}
 %attr(755,root,root) %{_appsdir}/%{_name}/*[Rr]un
 %attr(755,root,root) %{_appsdir}/%{_name}/choice_install
 %attr(755,root,root) %{_appsdir}/%{_name}/%{_platform}
-%{_appsdir}/%{_name}/AppI*
+%dir %{_appsdir}/%{_name}
+%{_appsdir}/%{_name}/.DirIcon
+%{_appsdir}/%{_name}/*.xml
 %{_appsdir}/%{_name}/gtkrc
 %{_appsdir}/%{_name}/Help
-%dir %{_appsdir}/%{_name}
+%{_pixmapsdir}/%{name}.png
+%{_desktopdir}/%{name}.desktop
