@@ -3,12 +3,12 @@
 Summary:	ROX-Mem displays the current memory usage
 Summary(pl):	ROX-Mem wy¶wietla bie¿±ce zu¿ycie pamiêci
 Name:		rox-%{_name}
-Version:	2.1.2
+Version:	2.1.3
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://www.kerofin.demon.co.uk/rox/%{_name}-%{version}.tar.gz
-# Source0-md5:	21f49f51055b43721a0a76ef38991077
+# Source0-md5:	58d0fb4d42860ea3c6c2bbd9251bb3a9
 Source1:	%{name}.desktop
 #Patch0:	%{name}-paths-fix.patch
 Patch1:		%{name}-ROX-CLib2-include.patch
@@ -19,7 +19,7 @@ URL:		http://www.kerofin.demon.co.uk/rox/mem.html
 BuildRequires:	autoconf
 BuildRequires:	glib2-devel >= 2.0.3
 BuildRequires:	gtk+2-devel >= 2.0.1
-BuildRequires:	libgtop-devel >= 2.0.1
+BuildRequires:	libgtop-devel >= 2.6.0
 BuildRequires:	libxml2-devel >= 2.4.0
 BuildRequires:	pkgconfig >= 0.9.0
 BuildRequires:	rox-CLib2-devel >= 2.1.4
