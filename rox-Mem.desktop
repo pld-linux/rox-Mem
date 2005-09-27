@@ -2,7 +2,7 @@
 Name=ROX-Mem
 Comment=ROX-Mem displays memory usage
 Comment[pl]=ROX-Mem wyświetla zużycie pamięci
-Exec=/usr/lib/ROX-apps/Mem/AppRun
+Exec=/usr/lib/rox/Mem/AppRun
 Icon=rox-Mem.png
 Terminal=false
 Type=Application
