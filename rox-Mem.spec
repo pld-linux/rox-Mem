@@ -1,7 +1,7 @@
 %define _name Mem
 %define _platform %(echo `uname -s`-`uname -m|sed 's/i.86/ix86/'`)
 Summary:	ROX-Mem displays the current memory usage
-Summary(pl):	ROX-Mem wy¶wietla bie¿±ce zu¿ycie pamiêci
+Summary(pl.UTF-8):   ROX-Mem wyÅ›wietla bieÅ¼Ä…ce zuÅ¼ycie pamiÄ™ci
 Name:		rox-%{_name}
 Version:	2.1.3
 Release:	2
@@ -33,9 +33,9 @@ ROX-Mem can function as a ROX applet or a standalone program and
 displays the current real memory usage and the current swap space
 usage.
 
-%description -l pl
-ROX-Mem mo¿e funkcjonowaæ jako aplet ROXa lub jako oddzielny program.
-Wy¶witla on bie¿±ce zu¿ycie pamiêci oraz swapu.
+%description -l pl.UTF-8
+ROX-Mem moÅ¼e funkcjonowaÄ‡ jako aplet ROXa lub jako oddzielny program.
+WyÅ›witla on bieÅ¼Ä…ce zuÅ¼ycie pamiÄ™ci oraz swapu.
 
 %prep
 %setup -q -n %{_name}
