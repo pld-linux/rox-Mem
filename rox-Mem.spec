@@ -1,7 +1,7 @@
 %define _name Mem
 %define _platform %(echo `uname -s`-`uname -m|sed 's/i.86/ix86/'`)
 Summary:	ROX-Mem displays the current memory usage
-Summary(pl.UTF-8):   ROX-Mem wyświetla bieżące zużycie pamięci
+Summary(pl.UTF-8):	ROX-Mem wyświetla bieżące zużycie pamięci
 Name:		rox-%{_name}
 Version:	2.1.3
 Release:	2
